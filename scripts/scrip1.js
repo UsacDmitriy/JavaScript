@@ -1,27 +1,24 @@
-let person = {
-    name: "John",
-    age: 25,
-    isMarried: false
-};
+let money = prompt('What is your budget?', "50000");
 
-console.log(person.name);
+let date = prompt("enter date. Format - YYYY-MM-DD", 2019-02-28);
 
-let arr = ['plum.png', 'orange.jpg'];
+let appData = {
+    budget: money,
+    timeDate: date,
+    expenses: null,
+    optionalExpenses: null,
+    income: null,
+    savings: false
+}
 
-console.log(arr[1]);
+let a = prompt('Type of expense', '1');
+let b = prompt('Enter payment', '300');
 
-// alert('Timi siski');
+let c = prompt('Type of expense', '1');
+let d = prompt('Enter payment', '100'); 
+appData.expenses = {
+    a: b,
+    c: d
+}
 
-//let answer = confirm('Are you sure?');
-//console.log(answer);
-
-//let answer = +prompt('Are you 18?', 'Yes');
-//console.log(answer);
-//console.log('siski' + 'siski');
-
-let incr = 10, decr =10;
-
-incr++;
-decr--;
-console.log(incr);
-console.log(incr);
+alert(appData.expenses.a);
