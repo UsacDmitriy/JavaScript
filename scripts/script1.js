@@ -14,11 +14,14 @@ let appData = {
 for (let i = 0; i < 2; i++) {
     let a = prompt('Type of expense', '1'),
         b = prompt('Enter payment', '300');
-    if ((typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)) != null 
+    if ( (typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)) != null 
         && a != '' && b != '' && a.length < 50)  {
         console.log('done');
         appData.expenses[a] = b;
-    } else {}
+    } else {
+        alert('Incorrect data! Try again.');
+        i--;
+    }
 }
 
 appData.moneyPerDay = appData.budget/30;
@@ -28,5 +31,9 @@ alert("Dayly budget:" + appData.moneyPerDay);
 if (appData.moneyPerDay < 100) {
     console.log('Minamal level');
 } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000 ) {
-    console.log('Middle level')
-} 
+    console.log('Middle level');
+}  else if (appData.moneyPerDay > 2000) {
+    console.log('High level');
+} else {
+    console.log('Error!');
+}
