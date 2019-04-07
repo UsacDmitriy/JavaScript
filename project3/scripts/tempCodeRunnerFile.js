@@ -1,10 +1,12 @@
-let arr = ['qww', 2, 'siski', 4, true];
+let soldier = {
+    health: 400,
+    armor: 100
+}
 
+let john = {
+    health: 100
+}
 
-//for (let i = 0; i< arr.length; i++ ) {
-//    (arr[i]);
-//}
-
-arr.forEach(function(item, i, mass) {   
-    console.log(i + ': ' + item + " (massive: " + mass + ')');
-} );
+john.__proto__ = soldier;
+console.log(john);
+console.log(john.armor);
