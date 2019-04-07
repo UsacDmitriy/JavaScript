@@ -20,7 +20,7 @@ for (let key in options) {
 
 console.log(Object.keys(options).length);
 
-let arr = [1, 2, 3, 4, 5];
+let arr = ['qww', 2, 'siski', 4, true];
 
 
 //for (let i = 0; i< arr.length; i++ ) {
@@ -28,8 +28,9 @@ let arr = [1, 2, 3, 4, 5];
 //}
 
 arr.forEach(function(item, i, mass) {   
-    console.log(i + ': ' + item + " massive: " + mass + ')');
+    console.log(i + ': ' + item + " (massive: " + mass + ')');
 } );
+
 
 
 
