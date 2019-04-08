@@ -24,7 +24,7 @@ let div = document.createElement('div'),
 
 div.classList.add('black');
 
-//document.body.appendChild(div);
+//document.body.appendChild(div); 
 //wrapper.appendChild(div);
 
 //div.innerHTML = '<p>Hello world!</p>';
