@@ -1,0 +1,25 @@
+#box {
+	width: 100px;
+	height: 100px;
+    background: red;
+    margin: 10px;
+}
+.circle {
+    width: 100px;
+	height: 100px;
+	background: red;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+    border-radius: 50px;
+    margin: 10px;
+    float: left;
+}
+.heart {
+    width: 200px;
+	height: 100px;
+	background: red;
+	-moz-border-radius: 100px / 50px;
+	-webkit-border-radius: 100px / 50px;
+    border-radius: 100px / 50px;
+    float: left;
+}
