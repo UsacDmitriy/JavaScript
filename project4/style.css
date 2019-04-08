@@ -12,7 +12,7 @@
 	-webkit-border-radius: 50px;
     border-radius: 50px;
     margin: 10px;
-    float: left;
+
 }
 .heart {
     width: 200px;
@@ -21,5 +21,17 @@
 	-moz-border-radius: 100px / 50px;
 	-webkit-border-radius: 100px / 50px;
     border-radius: 100px / 50px;
-    float: left;
+
+}
+
+
+.black {
+    width: 70px;
+	height: 70px;
+    background: black;
+    margin: 10px;
+    color: aliceblue;
+    margin: 0 auto;
+    text-align: center;
+
 }
