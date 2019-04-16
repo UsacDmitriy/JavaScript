@@ -14,7 +14,7 @@ let startBtn =document.getElementById('start'),
     countBtn = document.getElementsByTagName('button')[2],
     optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
     incomeItem = document.querySelector('.choose-income'),
-    checksavings = document.querySelector('#savings'),
+    checkSavings = document.querySelector('#savings'),
     sumValue = document.querySelector('.choose-sum'),
     percentValue = document.querySelector('.choose-percent'),
     yearValue = document.querySelector('.year-value'),
@@ -86,10 +86,54 @@ countBtn.addEventListener('click', function() {
     }
 });
 
-incomeItem.addEventListener('change', function() {
+incomeItem.addEventListener('input', function() {
     let items = incomeItem.value;
     appData.income = items.split(', ');
     incomeValue.textContent = appData.income;
+});
+
+checkSavings.addEventListener('click', function() {
+    if (appData.savings == true) {
+        appData.savings = false;
+        console.log(appData.savings);
+    } else {
+        appData.savings = true;
+        console.log(appData.savings);
+    }
+});
+
+
+sumValue.addEventListener('input', function() {
+    if (appData.savings == true) {
+        let sum = +sumValue.value,
+            percent = +percentValue.value;
+
+            console.log(sum);
+            console.log(percent);
+
+            appData.monthIncome = sum/100/12*percent;
+            appData.yearIncome = sum/100*percent;
+
+            console.log(appData.monthIncome);
+            console.log(appData.yearIncome);
+
+            monthSavingsValue.textContent = appData.monthIncome.toFixed(2);
+            
+            yearSavingsValue.textContent = appData.yearIncome.toFixed(2);
+    }
+});
+
+percentValue.addEventListener('input', function() {
+    if (appData.savings == true) {
+        let sum = +sumValue.value,
+        percent = +percentValue.value;
+
+        appData.monthIncome = sum/100/12*percent;
+        appData.yearIncome = sum/100*percent;
+
+        monthSavingsValue.textContent = appData.monthIncome.toFixed(1);
+        yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
+    }
 })
 
 let appData = {
@@ -98,72 +142,5 @@ let appData = {
     expenses: {},
     optionalExpenses: {},
     income: [],
-    savings: true,
-    chooseExpenses: function() {
-        for (let i = 0; i < 2; i++) {
-            let a = prompt('Type of expense', '1'),
-                b = prompt('Enter payment', '300');
-            if ( (typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)) != null 
-                && a != '' && b != '' && a.length < 50)  {
-                console.log('done');
-                appData.expenses[a] = b;
-            } else {
-                alert('Incorrect data! Try again.');
-                i--;
-            }
-        }
-    },
-    detectDaylyBudget: function() {
-        appData.moneyPerDay = (appData.budget/30).toFixed(2);
-        alert("Dayly budget:" + appData.moneyPerDay);
-    },
-    detectLevel: function() {
-        if (appData.moneyPerDay < 100) {
-            console.log('Minamal level');
-        } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000 ) {
-            console.log('Middle level');
-        }  else if (appData.moneyPerDay > 2000) {
-            console.log('High level');
-        } else {
-            console.log('Error!');
-        }
-    },
-    checkSavings: function() {
-        if (appData.savings == true) {
-            let save = +prompt('How much do you have'),
-                percent = prompt("You interest?");
-    
-                appData.monthIncome = save/100/12*percent;
-                alert('Your exceed ' + appData.monthIncome);
-        }
-    },
-    chooseOptExpenses: function() {
-        for (let i = 1; i <= 3; i++) {
-            let exp = prompt("Do you have additional expenxes?");
-            appData.optionalExpenses[i] = exp;
-        }
-        console.log(appData);
-    },
-    chooseIncome: function() {
-        let a = true;
-        while (a == true) {
-            let items = prompt('What your source of Income', '');
-            if ( (typeof(items)) === 'string' && (typeof(items)) != null && items != '') {
-                appData.income = items.split(', ');
-                appData.income.push(prompt('Maybe something more?'));
-                appData.income.sort();
-                a = false;
-            } else {
-                alert('Incorrect data!');
-            }
-        }
-        appData.income.forEach(function(item, i, income) {
-            let b = 1 + i;
-            console.log("Types of Income: " + (++i) + ": " + item);
-        });
-        for (let k in appData) {
-            console.log('Our object appData consist of: ' + k); 
-        }
-    }
+    savings: false
 };
-console.log(appData);
