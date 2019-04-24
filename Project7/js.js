@@ -36,3 +36,12 @@ function myAnimation () {
 }
 
 btn.addEventListener('click', myAnimation);
+
+let btnBlock = document.querySelector('.btn-block'),
+    btns = document.getElementsByTagName('button');
+
+btnBlock.addEventListener('click', function(event) {
+    if (event.target && event.target.matches('button.first')) {
+        console.log('Hello');
+    }
+})
