@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     //Timer
 
-    let deadLine = '2019-04-30';
+    let deadLine = '2019-05-13';
 
     function getTimeRemaining (endTime) {
         let t = Date.parse(deadLine) - Date.parse(new Date()),    
@@ -55,6 +55,16 @@ window.addEventListener('DOMContentLoaded', function() {
         };
     }
 
+    function formatTimeRemaining(t) {
+        if (t > 99 ) { 
+            return 99;
+        } else if (t/10 < 1) {
+            return '0' + t;
+        } else { 
+            return t;
+        }
+    }
+
     function setClock(id, endTime) {
         let timer = document.getElementById(id),
             hours = timer.querySelector('.hours'),
@@ -64,16 +74,15 @@ window.addEventListener('DOMContentLoaded', function() {
 
         function updateClock() {
             let t = getTimeRemaining(endTime);
-            hours.textContent = t.hours;
-            minutes.textContent = t.minutes;
-            seconds.textContent = t.seconds;
+            hours.textContent = formatTimeRemaining(t.hours);
+            minutes.textContent = formatTimeRemaining(t.minutes);
+            seconds.textContent = formatTimeRemaining(t.seconds);
 
             if (t.total <= endTime) {
                 clearInterval(timeInterval);
             }
         }
         }
-    
 
     setClock('timer', deadLine);
 
