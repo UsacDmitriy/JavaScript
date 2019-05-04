@@ -45,6 +45,7 @@ let obj = {
 obj.sum();
 
 // 1) Invoke function - window/undefined
-// 2) 
+// 2) Method of object - this = object
+// 3) Constructor (new) - 
 
 
