@@ -29,7 +29,7 @@ ivan.exit(); */
 }
 
 showThis(4, 5);
-showThis(4, 36);*/
+showThis(4, 36);
 let obj = {
     a: 20,
     b: 30,
@@ -44,8 +44,40 @@ let obj = {
 
 obj.sum();
 
+let user = {
+    name:'John'
+};
+
+function sayName(surname) {
+    console.log(this);
+    console.log(this.name + surname);
+};
+
+console.log(sayName.call(user, 'Smith'));
+console.log(sayName.apply(user, ['Snow']));
+
+function count(number) {
+    return this*number;
+}
+
+let double = count.bind(2);
+console.log(double(3));
+console.log(double(10)); */
+
+let btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {
+    console.log(this);
+    this.style.backgroundColor = 'red';
+    function showThis(){
+        console.log(this);
+    }
+    showThis();
+})
+
 // 1) Invoke function - window/undefined
 // 2) Method of object - this = object
-// 3) Constructor (new) - 
+// 3) Constructor (new) - this = new object
+// 4) указание конкретного контекста - call, apply, bind
 
 

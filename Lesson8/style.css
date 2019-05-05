@@ -1,6 +1,12 @@
+.main {
+    width: 960px;
+    margin: 0 auto;
+    height: 2000px;
+}
+.navigation {
+    height: 65px;
+}
 .stage {
-
-
     float: left;
     margin-left: 45px;
 }
