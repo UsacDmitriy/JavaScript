@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
-    'use strict';
+
 
     let tab = document.querySelectorAll('.info-header-tab'),
         info = document.querySelector('.info-header'),
@@ -103,6 +103,16 @@ window.addEventListener('DOMContentLoaded', function() {
         more.classList.remove('more-splash');
         document.body.style.overflow = '';
     });
+
+    let moreBtns = document.querySelectorAll('.description-btn');
+    console.log(moreBtns);
+
+    for (let value of moreBtns) {
+    value.addEventListener('click', function() {
+            overlay.style.display = 'block';
+    });
+    }
+
 });
 
 
