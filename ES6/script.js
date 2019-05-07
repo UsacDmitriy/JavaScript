@@ -1,4 +1,4 @@
-let name = 'Dmitry',
+/*let name = 'Dmitry',
     age = 30,
     mail = 'usachev2012@gmail.com';
 
@@ -22,3 +22,54 @@ var arr = makeArray();
 arr[1]();
 arr[3]();
 arr[7]();
+
+let fun = () => {
+    console.log(this);
+};
+
+//fun();
+
+let obj = {
+    number: 5,
+    sayNumber: function() {
+        let say = () => {
+            console.log(this);
+        };
+        say();
+    }
+};
+
+obj.sayNumber();
+
+let btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {
+    let show = () => {
+        console.log(this);
+    };
+    show();
+});
+
+
+function calcOrDouble(number, basis = 2) {
+    basis = basis || 2;
+    console.log(number*basis);
+}
+
+calcOrDouble(3,3);
+calcOrDouble(3);*/
+
+class Rectangle {
+    constructor(height, width = 20) {
+        this.height = height;
+        this.width = width;
+    }
+    calcArea() {
+        return this.height*this.width;
+    }
+}
+
+const square = new Rectangle(10, 10);
+
+
+console.log(square.calcArea());
