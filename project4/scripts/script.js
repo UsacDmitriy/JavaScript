@@ -28,7 +28,7 @@ div.classList.add('black');
 //wrapper.appendChild(div);
 
 //div.innerHTML = '<p>Hello world!</p>';
-div.textContent = "hello people"
+div.textContent = "hello people";
 
 document.body.insertBefore(div, circle[0]);
 document.body.removeChild(circle[1]);
