@@ -1,3 +1,4 @@
+
 let money = +prompt('What is your budget?', "50000"),
     date = prompt("enter date. Format - YYYY-MM-DD", 2019-02-28);
 
