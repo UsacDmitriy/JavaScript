@@ -108,11 +108,37 @@ window.addEventListener('DOMContentLoaded', function() {
     console.log(moreBtns);
 
     for (let value of moreBtns) {
-    value.addEventListener('click', function() {
+    value.addEventListener('click', function(event) {
             overlay.style.display = 'block';
     });
     }
 
+    // Form
+
+    let message = {
+        loading: 'loading',
+        success: 'Thank you! we will contact you soon!',
+        failure: 'Something wrong'
+    };
+
+    let form = document.querySelector('.main-form'),
+        input = form.getElementsByTagName('input'),
+        statusMessage = document.createElement('div');
+
+        statusMessage.classList.add('status');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        form.appendChild(statusMessage);
+
+        let request = new XMLHttpRequest();
+        request.open('POST', 'server.php');
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        let formData = new FormData(form);
+        request.send(formData);
+    });
 });
+
 
 
