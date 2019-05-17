@@ -1,41 +1,34 @@
-/*let options = {
-    height: 768,
-    width: 1366,
-    background: 'red',
-    font: {
-        size: '24px',
-        color: '#fff'
-    }
-};
-
-console.log(JSON.stringify(options));
-console.log(JSON.parse(JSON.stringify(options)));*/
 
 let inputRub = document.getElementById('rub'),
     inputUsd = document.getElementById('usd');
 
 inputRub.addEventListener('input', () => {
-    let request = new XMLHttpRequest();
 
-    //request.open(method, url, async, login, password);
-    request.open('GET', 'source/current.json');
-    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    request.send();
+    function convert() {
+        return new Promise(function (resolve, reject) {
+            let request = new XMLHttpRequest();
 
-    //status
-    //statusText
-    //responseText / response
-    //readyState
-    
-    request.addEventListener('readystatechange', function() {
-        if (request.readyState === 4 && request.status == 200) {
-            let data = JSON.parse(request.response);
+            request.open('GET', 'source/current.json');
+            request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
-            inputUsd.value = (inputRub.value/data.usd).toFixed(2);
+            request.onload = function () {
+                if (this.status == 200) {
+                    resolve(this.response)
+                } else {
+                    reject('Something wrong!');
+                }
+            }
 
-        } else {
-            inputUsd.value = 'something wrong';
-        }
-    });
+            request.send();
+        });   
+    }
+
+    convert()   
+            .then(response => {
+                let data = JSON.parse(response);
+
+                inputUsd.value = (inputRub.value/data.usd).toFixed(2);
+            })
+            .catch(response => {inputUsd.value = response;});
 });
 
