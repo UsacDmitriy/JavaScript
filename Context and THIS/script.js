@@ -1,4 +1,4 @@
-/*function User(name, id) {
+function User(name, id) {
     this.name = name;
     this.id = id;
     this.human = true;
@@ -14,10 +14,10 @@ User.prototype.exit = function (name) {
 let ivan = new User('Ivan', 25);
 let alex = new User('Alex', 20);
 
-console.log(ivan);
-console.log(alex);
+ivan.exit();
+alex.exit(); /*
 
-ivan.exit(); */
+ivan.exit(); 
 
 /*function showThis(a, b) {
     console.log(this);
