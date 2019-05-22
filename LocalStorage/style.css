@@ -1,0 +1,18 @@
+.form-control {
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.form-signin-heading {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.checkbox { 
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+}
