@@ -23,3 +23,9 @@ body {
         border-radius: 100px / 50px;
 
 }
+
+.image {
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+}
